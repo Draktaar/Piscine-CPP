@@ -1,0 +1,24 @@
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+
+# Libraries
+*.a
+
+# Executables
+*.exe
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Custom
+.vscode
+.DS_Store
+.vscode/settings.json
