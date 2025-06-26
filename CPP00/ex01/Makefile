@@ -6,15 +6,20 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/26 00:50:11 by achu              #+#    #+#              #
-#    Updated: 2025/06/26 00:58:20 by achu             ###   ########.fr        #
+#    Updated: 2025/06/26 13:41:41 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		phonebook
 CC =		g++
-CFLAGS =	-Wall -Wextra -Werror -std=c++98
+CFLAGS =	-Wall -Wextra -std=c++98
 
-SRCS =	PhoneBook.cpp
+HEADERS =	PhoneBook.hpp \
+			Contact.hpp \
+
+SRCS =		PhoneBook.cpp \
+			Contact.cpp \
+			main.cpp
 
 OBJS =	$(SRCS:.cpp=.o)
 
@@ -25,6 +30,8 @@ $(NAME):	$(OBJS)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJS): $(HEADERS)
 
 clean:
 	rm -rf $(OBJS)
