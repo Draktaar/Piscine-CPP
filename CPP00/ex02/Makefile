@@ -5,21 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/26 00:50:11 by achu              #+#    #+#              #
-#    Updated: 2025/06/28 16:32:08 by achu             ###   ########.fr        #
+#    Created: 2025/06/28 16:31:04 by achu              #+#    #+#              #
+#    Updated: 2025/06/28 16:32:55 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		phonebook
+NAME =		account
 CC =		g++
-CFLAGS =	-Wall -Wextra -Werror -std=c++98
+CFLAGS =	-Wall -Wextra -std=c++98
 
-HEADERS =	PhoneBook.hpp \
-			Contact.hpp \
+HEADERS =	Account.hpp
 
-SRCS =		PhoneBook.cpp \
-			Contact.cpp \
-			main.cpp
+SRCS =		Account.cpp \
+			tests.cpp
 
 OBJS =	$(SRCS:.cpp=.o)
 

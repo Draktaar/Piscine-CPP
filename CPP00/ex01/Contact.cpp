@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:09:56 by achu              #+#    #+#             */
-/*   Updated: 2025/06/27 02:52:21 by achu             ###   ########.fr       */
+/*   Updated: 2025/06/28 13:47:45 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ bool	Contact::fill()
 	return (true);
 }
 
-std::string	Contact::getFirstName() const { return (this->_firstName); }
-std::string	Contact::getLastName() const { return (this->_lastName); }
-std::string	Contact::getNickName() const { return (this->_nickName); }
-std::string	Contact::getPhoneNum() const { return (this->_phoneNum); }
-std::string	Contact::getSecret() const { return (this->_secret); }
+std::string	Contact::getFirstName() const { return (_firstName); }
+std::string	Contact::getLastName() const { return (_lastName); }
+std::string	Contact::getNickName() const { return (_nickName); }
+std::string	Contact::getPhoneNum() const { return (_phoneNum); }
+std::string	Contact::getSecret() const { return (_secret); }
