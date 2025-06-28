@@ -5,19 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/06/28 16:31:04 by achu              #+#    #+#              #
-#    Updated: 2025/06/28 23:15:16 by achu             ###   ########.fr        #
+#    Created: 2025/06/28 18:05:41 by achu              #+#    #+#              #
+#    Updated: 2025/06/28 23:16:16 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		account
+NAME =		zombie
 CC =		g++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
-HEADERS =	Account.hpp
+HEADERS =	Zombie.hpp
 
-SRCS =		Account.cpp \
-			tests.cpp
+SRCS =		randomChump.cpp \
+			newZombie.cpp \
+			Zombie.cpp \
+			main.cpp
 
 OBJS =	$(SRCS:.cpp=.o)
 
