@@ -6,14 +6,14 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:12:29 by achu              #+#    #+#             */
-/*   Updated: 2025/06/26 14:26:40 by achu             ###   ########.fr       */
+/*   Updated: 2025/06/27 03:02:50 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "PhoneBook.hpp"
 
-int	FtStrcmp(std::string s1, std::string s2)
+static int	strcmp(std::string s1, std::string s2)
 {
 	int	i;
 
@@ -27,53 +27,37 @@ int	FtStrcmp(std::string s1, std::string s2)
 	return (0);
 }
 
-bool	IsAdd(std::string cmd)
+static void	infoMessage(void)
 {
-	if (FtStrcmp(cmd, "ADD") == 0)
-		return (true);
-	return (false);
-}
-
-bool	IsSearch(std::string cmd)
-{
-	if (FtStrcmp(cmd, "SEARCH") == 0)
-		return (true);
-	return (false);
-}
-
-bool	IsExit(std::string cmd)
-{
-	if (FtStrcmp(cmd, "EXIT") == 0)
-		return (true);
-	return (false);
-}
-
-void	InfoMessage(void)
-{
-	std::cout << "Please use one of the following command:\n";
+	std::cout << "Use one of the following command:\n";
 	std::cout << "ADD: Save a new contact\n";
 	std::cout << "SEARCH: Display a specific contact\n";
-	std::cout << "EXIT: Quits the program and lose all your friends FOREVER !\n";
-	std::cout << std::endl;
+	std::cout << "EXIT: Quits the program and lose all your friends FOREVER !\n\n";
 }
 
 int	main()
 {
-	PhoneBook	list;
-	std::string	cmd;
+	PhoneBook		book;
+	std::string		cmd;
 
-	InfoMessage();
+	infoMessage();
 	while (1)
 	{
 		std::getline(std::cin, cmd);
-		if (IsAdd(cmd))
-			std::cout << "add" << std::endl;
-		else if (IsSearch(cmd))
-			std::cout << "search" << std::endl;
-		else if (IsExit(cmd))
+		if (!strcmp(cmd, "EXIT"))
 			break;
-		else
-			InfoMessage();
+		else if (!strcmp(cmd, "ADD"))
+			book.addContact();
+		else if (!strcmp(cmd, "SEARCH"))
+		{
+			book.showContact();
+			std::cout << "Input the index to display more information about the contact:\n";
+			std::cout << "(To return to the menu, press any other keys that are not an index)\n";
+			std::getline(std::cin, cmd);
+			if (book.checkContact(cmd))
+				book.displayContact(std::atoi(cmd.c_str()));
+			infoMessage();
+		}
 	}
 	return (0);
 }
