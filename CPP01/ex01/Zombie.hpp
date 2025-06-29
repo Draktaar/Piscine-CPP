@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/28 18:06:22 by achu              #+#    #+#             */
-/*   Updated: 2025/06/29 01:55:54 by achu             ###   ########.fr       */
+/*   Created: 2025/06/28 18:06:25 by achu              #+#    #+#             */
+/*   Updated: 2025/06/29 02:14:45 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Zombie.hpp"
+#include <string>
 
-Zombie::Zombie(void) {}
-Zombie::Zombie(std::string name) : _name(name) {}
-Zombie::~Zombie(void)
-{
-	std::cout << "Bill killed " << _name << "\n";
-}
+#pragma once
+# ifndef __ZOMBIE_H__
+#  define __ZOMBIE_H__
 
-void	Zombie::announce(void)
+class Zombie
 {
-	std::cout << _name << ": BraiiiiiiinnnzzzZ...\n";
-}
+	private:
+
+		std::string		_name;
+
+	public:
+
+		Zombie(void);
+		Zombie(std::string name);
+		~Zombie(void);
+
+		void	setName(std::string name);
+		void	announce(void);
+};
+
+#endif
