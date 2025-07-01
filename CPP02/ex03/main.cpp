@@ -6,27 +6,27 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 21:37:16 by achu              #+#    #+#             */
-/*   Updated: 2025/07/01 20:51:40 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/01 21:11:42 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 #include <iostream>
+
+bool	bsp(const Point& a, const Point& b, const Point& c, const Point& point);
 
 int	main()
 {
-	Fixed			a;
-	Fixed const		b( Fixed(5.05f) * Fixed(2) );
+	Point const	a(0.0f, 0.0f);
+	Point const	b(0.0f, 5.0f);
+	Point const	c(5.0f, 0.0f);
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+	Point const	point0(1.42f, 3.29f);
+	Point const	point1(3.33f, 10.0f);
 
-	std::cout << b << std::endl;
-
-	std::cout << Fixed(5) * Fixed(5) << std::endl;
-
+	if (bsp(a, b, c, point0))
+		std::cout << "Point 0 is inside the triangle" << std::endl;
+	if (bsp(a, b, c, point1))
+		std::cout << "Point 1 is inside the triangle" << std::endl;
 	return (0);
 }

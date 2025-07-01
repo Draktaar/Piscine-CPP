@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/29 21:37:16 by achu              #+#    #+#             */
-/*   Updated: 2025/07/01 20:51:40 by achu             ###   ########.fr       */
+/*   Created: 2025/07/01 03:41:22 by achu              #+#    #+#             */
+/*   Updated: 2025/07/01 13:28:48 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+# ifndef __POINT_H__
+#  define __POINT_H__
+
 #include "Fixed.hpp"
-#include <iostream>
 
-int	main()
+class Point
 {
-	Fixed			a;
-	Fixed const		b( Fixed(5.05f) * Fixed(2) );
+	private:
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
+		const Fixed 		_x;
+		const Fixed 		_y;
 
-	std::cout << b << std::endl;
+	public:
 
-	std::cout << Fixed(5) * Fixed(5) << std::endl;
+		Point(void);
+		Point(const float pX, const float pY);
+		Point(const Point& pCopy);
+		~Point(void);
 
-	return (0);
-}
+		const Fixed&	getPointX(void) const;
+		const Fixed&	getPointY(void) const;
+
+		Point&	operator=(const Point& pCopy);	
+};
+
+#endif
