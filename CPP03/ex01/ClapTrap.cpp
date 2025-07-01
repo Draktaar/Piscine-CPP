@@ -6,18 +6,18 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 22:46:35 by achu              #+#    #+#             */
-/*   Updated: 2025/07/02 00:59:08 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/02 00:58:17 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap(void) : _name("Default"), _health(10), _energy(10), _atkDmg(0) {
+ClapTrap::ClapTrap(void) : _name("Default"), _health(100), _energy(50), _atkDmg(20) {
 	std::cout << "ClapTrap " << _name << " default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string pName) : _name(pName), _health(10), _energy(10), _atkDmg(0) {
+ClapTrap::ClapTrap(std::string pName) : _name(pName), _health(100), _energy(50), _atkDmg(20) {
 	std::cout << "ClapTrap " << _name << " parameterized constructor called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 22:46:35 by achu              #+#    #+#             */
-/*   Updated: 2025/07/02 00:47:47 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/02 00:49:46 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 
 		std::string		_name;
 		int				_health;
