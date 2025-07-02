@@ -21,22 +21,22 @@ WrongCat::WrongCat(void)
 
 WrongCat::WrongCat(std::string pType)
 	: WrongAnimal(pType) {
-	std::cout << "WrongCat " << _type << " parameterized constructor called" << std::endl;
+	std::cout << _type << " parameterized constructor called" << std::endl;
 }
 
 WrongCat::WrongCat(WrongCat const& pCopy)
-	: WrongAnimal(pCopy._type) {
-	std::cout << "WrongCat " << _type << " copy constructor called" << std::endl;
+	: WrongAnimal(pCopy) {
+	std::cout << _type << " copy constructor called" << std::endl;
 }
 
 WrongCat::~WrongCat(void)
 {
-	std::cout << "WrongCat " << _type << " destructor called" << std::endl;
+	std::cout << _type << " destructor called" << std::endl;
 }
 
 WrongCat&	WrongCat::operator=(WrongCat const& pCopy)
 {
-	std::cout << "WrongCat " << _type << " copy operator called" << std::endl;
+	std::cout << _type << " copy operator called" << std::endl;
 	if (this != &pCopy)
 	{
 		_type = pCopy._type;
