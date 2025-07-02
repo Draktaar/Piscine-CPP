@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/01 23:19:50 by achu              #+#    #+#             */
-/*   Updated: 2025/07/02 01:41:02 by achu             ###   ########.fr       */
+/*   Created: 2025/07/02 01:01:03 by achu              #+#    #+#             */
+/*   Updated: 2025/07/02 02:08:26 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include <string>
 
-class ScavTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
-	private:
-
-		bool	_isGuardGate;
-
 	public:
+		FragTrap(void);
+		FragTrap(std::string);
+		FragTrap(FragTrap const& pCopy);
+		~FragTrap(void);
 
-		ScavTrap(void);
-		ScavTrap(std::string);
-		ScavTrap(ScavTrap const& pCopy);
-		~ScavTrap(void);
+		void	highFiveGuys(void);
 
-		void	attack(std::string const& target);
-		void	guardGate(void);
-
-		ScavTrap &operator=(const ScavTrap &src);
+		FragTrap&	operator=(FragTrap const& pCopy);
 };
