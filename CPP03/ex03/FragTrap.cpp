@@ -6,20 +6,24 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 01:00:56 by achu              #+#    #+#             */
-/*   Updated: 2025/07/02 01:58:21 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/02 13:06:56 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include <iostream>
 
+const int	FragTrap::defHealth = 100;
+const int	FragTrap::defEnergy = 100;
+const int	FragTrap::defAtkDmg = 30;
+
 FragTrap::FragTrap(void) :
-	ClapTrap("Default", 100, 100, 30) {
+	ClapTrap("Default", defHealth, defEnergy, defAtkDmg) {
 	std::cout << "FragTrap default constructor called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string pName) :
-	ClapTrap(pName, 100, 100, 30) {
+	ClapTrap(pName, defHealth, defEnergy, defAtkDmg) {
 	std::cout << "FragTrap " << _name << " parameterized constructor called" << std::endl;
 }
 

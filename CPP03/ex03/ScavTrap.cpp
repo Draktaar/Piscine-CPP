@@ -6,20 +6,24 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 23:19:43 by achu              #+#    #+#             */
-/*   Updated: 2025/07/02 01:47:40 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/02 13:06:44 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 #include <iostream>
 
+const int	ScavTrap::defHealth = 100;
+const int	ScavTrap::defEnergy = 50;
+const int	ScavTrap::defAtkDmg = 20;
+
 ScavTrap::ScavTrap(void) :
-	ClapTrap("Default", 100, 50, 20), _isGuardGate(false) {
+	ClapTrap("Default", defHealth, defEnergy, defAtkDmg), _isGuardGate(false) {
 	std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string pName) :
-	ClapTrap(pName, 100, 50, 20), _isGuardGate(false){
+	ClapTrap(pName, defHealth, defEnergy, defAtkDmg), _isGuardGate(false){
 	std::cout << "ScavTrap " << _name << " parameterized constructor called" << std::endl;
 }
 
