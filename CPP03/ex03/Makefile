@@ -6,7 +6,7 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/01 22:45:45 by achu              #+#    #+#              #
-#    Updated: 2025/07/02 02:12:32 by achu             ###   ########.fr        #
+#    Updated: 2025/07/02 02:14:59 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,13 @@ CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
 HEADERS =	ClapTrap.hpp \
 			FragTrap.hpp \
-			ScavTrap.hpp
+			ScavTrap.hpp \
+			DiamondTrap.cpp
 
 SRCS =		ClapTrap.cpp \
 			FragTrap.cpp \
 			ScavTrap.cpp \
+			DiamondTrap.cpp \
 			main.cpp
 
 OBJS =	$(SRCS:.cpp=.o)
