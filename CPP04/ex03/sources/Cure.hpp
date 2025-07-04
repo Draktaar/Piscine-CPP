@@ -6,13 +6,13 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 16:09:52 by achu              #+#    #+#             */
-/*   Updated: 2025/07/03 16:37:58 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/04 14:32:51 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-# ifndef __CURE_H__
-#  define __CURE_H__
+#ifndef __CURE_H__
+#define __CURE_H__
 
 #include "AMateria.hpp"
 

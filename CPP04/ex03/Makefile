@@ -6,23 +6,27 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/03 15:00:21 by achu              #+#    #+#              #
-#    Updated: 2025/07/03 15:10:51 by achu             ###   ########.fr        #
+#    Updated: 2025/07/04 14:45:28 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		rpg
 CC =		g++
-CFLAGS =	-Wall -Wextra -Werror -std=c++98
+CFLAGS =	-Wall -Wextra -std=c++98
 
-HEADERS =	ClapTrap.hpp \
-			FragTrap.hpp \
-			ScavTrap.hpp \
-			DiamondTrap.cpp
+HEADERS =	sources/IMateriaSource.hpp \
+			sources/MateriaSource.hpp \
+			sources/AMateria.hpp \
+			sources/Cure.hpp \
+			sources/Ice.hpp \
+			sources/ICharacter.hpp \
+			sources/Character.hpp
 
-SRCS =		ClapTrap.cpp \
-			FragTrap.cpp \
-			ScavTrap.cpp \
-			DiamondTrap.cpp \
+SRCS =		sources/MateriaSource.cpp \
+			sources/AMateria.cpp \
+			sources/Cure.cpp \
+			sources/Ice.cpp \
+			sources/Character.cpp \
 			main.cpp
 
 OBJS =	$(SRCS:.cpp=.o)

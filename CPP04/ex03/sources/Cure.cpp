@@ -6,11 +6,12 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 16:15:43 by achu              #+#    #+#             */
-/*   Updated: 2025/07/03 16:54:29 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/04 14:41:07 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 
 Cure::Cure()

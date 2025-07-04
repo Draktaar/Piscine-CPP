@@ -1,4 +1,3 @@
-#include "Ice.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,11 +6,12 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 16:15:46 by achu              #+#    #+#             */
-/*   Updated: 2025/07/03 16:15:46 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/04 14:41:02 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 
 Ice::Ice()
@@ -35,8 +35,7 @@ Ice&	Ice::operator=(Ice const& pCopy)
 
 AMateria*	Ice::clone() const
 {
-	AMateria*	spell = new Ice;
-	return (spell);
+	return (new Ice);
 }
 
 void		Ice::use(ICharacter& pTarget)

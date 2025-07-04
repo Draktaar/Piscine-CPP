@@ -6,13 +6,13 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 16:11:09 by achu              #+#    #+#             */
-/*   Updated: 2025/07/03 17:38:11 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/04 14:32:47 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-# ifndef __CHARACTER_H__
-#  define __CHARACTER_H__
+#ifndef __CHARACTER_H__
+#define __CHARACTER_H__
 
 #include "ICharacter.hpp"
 #include "AMateria.hpp"

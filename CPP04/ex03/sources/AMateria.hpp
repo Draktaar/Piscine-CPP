@@ -6,17 +6,17 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:44:25 by achu              #+#    #+#             */
-/*   Updated: 2025/07/03 16:10:50 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/04 14:39:55 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-# ifndef __AMATERIA_H__
-#  define __AMATERIA_H__
+#ifndef __AMATERIA_H__
+#define __AMATERIA_H__
 
-#include "ICharacter.hpp"
 #include <string>
 
+class ICharacter;
 class AMateria
 {
 	protected:
