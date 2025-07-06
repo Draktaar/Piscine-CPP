@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 14:44:25 by achu              #+#    #+#             */
-/*   Updated: 2025/07/04 14:39:55 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/05 15:12:53 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class AMateria
 		AMateria(AMateria const& pCopy);
 
 	public:
-		
+
 		virtual ~AMateria();
 
 		AMateria&	operator=(AMateria const& pCopy);
