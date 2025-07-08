@@ -6,7 +6,7 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/03 15:00:21 by achu              #+#    #+#              #
-#    Updated: 2025/07/08 15:56:26 by achu             ###   ########.fr        #
+#    Updated: 2025/07/08 17:03:13 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,17 @@ CC =		g++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
 HEADERS =	Bureaucrat.hpp \
-			Form.hpp
+			AForm.hpp \
+			PresidentialPardonForm.hpp \
+			RobotomyRequestForm.hpp \
+			ShrubberyCreationForm.hpp \
+			
 
 SRCS =		Bureaucrat.cpp \
-			Form.cpp \
+			AForm.cpp \
+			PresidentialPardonForm.cpp \
+			RobotomyRequestForm.cpp \
+			ShrubberyCreationForm.cpp \
 			main.cpp
 
 OBJS =	$(SRCS:.cpp=.o)
