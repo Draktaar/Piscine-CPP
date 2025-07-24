@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 02:00:54 by achu              #+#    #+#             */
-/*   Updated: 2025/07/24 18:12:58 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/25 00:50:04 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ class ScalarConverter
 		ScalarConverter(const ScalarConverter& pCopy);
 		~ScalarConverter();
 		ScalarConverter& operator=(const ScalarConverter& pCopy);
-
-		
 
 	public:
 

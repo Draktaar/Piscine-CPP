@@ -6,7 +6,7 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/03 15:00:21 by achu              #+#    #+#              #
-#    Updated: 2025/07/24 18:36:47 by achu             ###   ########.fr        #
+#    Updated: 2025/07/25 00:54:38 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,10 @@ NAME =		convert
 CC =		g++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
-HEADERS =	ScalarConverter.h
+HEADERS =	Serializer.h \
+			Data.h
 
-SRCS =		ScalarConverter.cpp \
+SRCS =		Serializer.cpp \
 			main.cpp
 
 OBJS =	$(SRCS:.cpp=.o)
