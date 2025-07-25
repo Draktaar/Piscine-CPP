@@ -6,18 +6,20 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/03 15:00:21 by achu              #+#    #+#              #
-#    Updated: 2025/07/25 01:02:59 by achu             ###   ########.fr        #
+#    Updated: 2025/07/25 23:25:11 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		serializer
+NAME =		identify
 CC =		g++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
-HEADERS =	Serializer.h \
-			Data.h
+HEADERS =	Base.h \
+			A.h \
+			B.h \
+			C.h
 
-SRCS =		Serializer.cpp \
+SRCS =		Base.cpp \
 			main.cpp
 
 OBJS =	$(SRCS:.cpp=.o)
