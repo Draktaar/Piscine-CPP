@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 23:46:36 by achu              #+#    #+#             */
-/*   Updated: 2025/07/26 18:03:38 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/28 00:42:58 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Array
 		~Array(void);
 		Array&	operator=(const Array& pCopy);
 
-		int	size(void);
+		int	size(void) const;
 
 		class OutOfBoundException : std::exception {
 			public:
