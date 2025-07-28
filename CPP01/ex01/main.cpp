@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:05:48 by achu              #+#    #+#             */
-/*   Updated: 2025/06/29 02:18:55 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/28 15:15:19 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	main()
 {
 	Zombie	*horde;
 
-	horde = zombieHorde(10, "Isaac");
+	horde = zombieHorde(10, "Zombie");
 	for (int i = 0; i < 10; i++)
 		horde[i].announce();
-	delete [] horde;
+	delete[] horde;
 	return (0);
 }
