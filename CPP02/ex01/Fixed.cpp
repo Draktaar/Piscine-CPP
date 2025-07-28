@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 21:37:50 by achu              #+#    #+#             */
-/*   Updated: 2025/06/30 17:05:48 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/28 18:27:02 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,41 @@
 
 const int	Fixed::_frctBits = 8;
  
+//#****************************************************************************#
+//#                        CONSTRUCTOR & DESTRUCTOR                            #
+//#****************************************************************************#
+
 Fixed::Fixed(void) : _fpValue(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
+
 Fixed::Fixed(const Fixed& pCopy)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = pCopy;
 }
+
 Fixed::Fixed(const int& pInt)
 {
 	std::cout << "Int constructor called" << std::endl;
 	_fpValue = pInt << _frctBits;
 }
+
 Fixed::Fixed(const float& pFloat)
 {
 	std::cout << "Float constructor called" << std::endl;
 	_fpValue = roundf(pFloat * (1 << _frctBits));
 }
+
 Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
 }
+
+//#****************************************************************************#
+//#                              GETTER-SETTER                                 #
+//#****************************************************************************#
 
 int Fixed::getRawBits(void) const
 {
@@ -49,6 +61,10 @@ void Fixed::setRawBits(int const raw)
 	this->_fpValue = raw;
 }
 
+//#****************************************************************************#
+//#                             MEMBER FUNCTION                                #
+//#****************************************************************************#
+
 float	Fixed::toFloat(void) const
 {
 	return ((float)_fpValue / (1 << _frctBits));
@@ -58,6 +74,10 @@ int		Fixed::toInt(void) const
 {
 	return ((int)_fpValue >> _frctBits);
 }
+
+//#****************************************************************************#
+//#                            OPERATOR OVERLOAD                               #
+//#****************************************************************************#
 
 Fixed& Fixed::operator=(const Fixed& pCopy)
 {
