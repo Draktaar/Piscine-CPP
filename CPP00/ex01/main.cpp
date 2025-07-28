@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:12:29 by achu              #+#    #+#             */
-/*   Updated: 2025/06/27 03:02:50 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/28 13:22:43 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int	main()
 	infoMessage();
 	while (1)
 	{
-		std::getline(std::cin, cmd);
+		if (!std::getline(std::cin, cmd))
+			return (0);
 		if (!strcmp(cmd, "EXIT"))
 			break;
 		else if (!strcmp(cmd, "ADD"))
