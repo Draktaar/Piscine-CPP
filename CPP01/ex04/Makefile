@@ -6,12 +6,12 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/29 03:29:22 by achu              #+#    #+#              #
-#    Updated: 2025/06/29 13:54:27 by achu             ###   ########.fr        #
+#    Updated: 2025/07/29 10:01:14 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		sed
-CC =		g++
+CC =		c++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
 SRCS =		main.cpp

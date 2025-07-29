@@ -6,12 +6,12 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/25 13:58:33 by achu              #+#    #+#              #
-#    Updated: 2025/06/26 00:51:31 by achu             ###   ########.fr        #
+#    Updated: 2025/07/29 10:01:14 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		megaphone
-CC =		g++
+CC =		c++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
 SRCS =	megaphone.cpp

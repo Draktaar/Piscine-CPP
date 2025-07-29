@@ -6,12 +6,12 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/26 00:50:11 by achu              #+#    #+#              #
-#    Updated: 2025/06/28 16:32:08 by achu             ###   ########.fr        #
+#    Updated: 2025/07/29 10:01:14 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		phonebook
-CC =		g++
+CC =		c++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
 HEADERS =	PhoneBook.hpp \

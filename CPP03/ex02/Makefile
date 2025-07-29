@@ -6,12 +6,12 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/01 22:45:45 by achu              #+#    #+#              #
-#    Updated: 2025/07/02 02:12:32 by achu             ###   ########.fr        #
+#    Updated: 2025/07/29 10:01:14 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		claptrap
-CC =		g++
+CC =		c++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
 HEADERS =	ClapTrap.hpp \

@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME =		animal
-CC =		g++
+CC =		c++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
 HEADERS =	Animal.hpp \

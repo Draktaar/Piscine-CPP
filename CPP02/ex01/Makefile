@@ -6,12 +6,12 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/28 18:05:41 by achu              #+#    #+#              #
-#    Updated: 2025/06/30 01:07:17 by achu             ###   ########.fr        #
+#    Updated: 2025/07/29 10:01:14 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		a.out
-CC =		g++
+CC =		c++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98
 
 HEADERS =	Fixed.hpp
