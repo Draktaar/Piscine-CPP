@@ -10,6 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#ifndef __DIAMONDTRAP_H__
+#define __DIAMONDTRAP_H__
+
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
@@ -26,8 +30,12 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap(DiamondTrap const& pCopy);
 		~DiamondTrap(void);
 
+		std::string		getNewName(void) const;
+
 		DiamondTrap&	operator=(DiamondTrap const& pCopy);
 
 		void	attack(std::string const& target);
 		void	whoAmI(void);
 };
+
+#endif

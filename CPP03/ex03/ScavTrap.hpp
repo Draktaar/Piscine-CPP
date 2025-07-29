@@ -10,6 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#ifndef __SCAVTRAP_H__
+#define __SCAVTRAP_H__
+
 #include "ClapTrap.hpp"
 #include <string>
 
@@ -37,3 +41,5 @@ class ScavTrap : virtual public ClapTrap
 
 		ScavTrap &operator=(const ScavTrap &src);
 };
+
+#endif

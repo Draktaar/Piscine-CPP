@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 23:19:43 by achu              #+#    #+#             */
-/*   Updated: 2025/07/02 01:47:40 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/29 16:58:49 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,26 @@ void	ScavTrap::attack(std::string const& target)
 		std::cout << "ScavTrap " << _name << " is too tired to do something!" << std::endl;
 		return ;
 	}
+	else if (_isGuardGate) {
+		std::cout << "ScavTrap " << _name << " is in guard mod, therefore he cannot attack!" << std::endl;
+		return ;
+	}
 	_energy--;
 	std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _atkDmg << " points of damage!" << std::endl;
+}
+
+void	ScavTrap::takeDamage(unsigned int amount)
+{
+	if (_isGuardGate) {
+		_energy--;
+		std::cout << "ScavTrap " << _name << " cannot take damage!" << std::endl;
+		return ;
+	}
+	_health -= amount;
+	if (_health > 0)
+		std::cout << "ScavTrap " << _name << " has taken " << amount << " damage!" << std::endl;
+	else
+		std::cout << "ScavTrap " << _name << " is now KO" << std::endl;
 }
 
 void	ScavTrap::guardGate(void)

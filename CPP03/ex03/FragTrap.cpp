@@ -45,6 +45,29 @@ void	FragTrap::highFiveGuys(void) {
 	std::cout << "FragTrap " << _name << " wants to high five! It would be very mean of you to attack him now." << std::endl;
 }
 
+void	FragTrap::attack(std::string const& target)
+{
+	if (_health <= 0) {
+		std::cout << "FragTrap " << _name << " is out of service!" << std::endl;
+		return ;
+	}	
+	else if (_energy <= 0) {
+		std::cout << "FragTrap " << _name << " is too tired to do something!" << std::endl;
+		return ;
+	}
+	_energy--;
+	std::cout << "FragTrap " << _name << " attacks " << target << ", causing " << _atkDmg << " points of damage!" << std::endl;
+}
+
+void	FragTrap::takeDamage(unsigned int amount)
+{
+	_health -= amount;
+	if (_health > 0)
+		std::cout << "FragTrap " << _name << " has taken " << amount << " damage!" << std::endl;
+	else
+		std::cout << "FragTrap " << _name << " is now KO" << std::endl;
+}
+
 FragTrap &FragTrap::operator=(FragTrap const &pCopy)
 {
 	std::cout << "FragTrap " << _name << " copy assignment operator called" << std::endl;

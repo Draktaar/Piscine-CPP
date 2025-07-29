@@ -32,6 +32,8 @@ DiamondTrap::~DiamondTrap(void) {
 	std::cout << "DiamondTrap " << _name << " destructor called" << std::endl;
 }
 
+std::string		DiamondTrap::getNewName(void) const { return (this->_name); }
+
 DiamondTrap&	DiamondTrap::operator=(DiamondTrap const& pCopy)
 {
 	std::cout << "DiamondTrap " << _name << " copy assignment operator called" << std::endl;

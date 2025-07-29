@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 22:46:35 by achu              #+#    #+#             */
-/*   Updated: 2025/07/02 01:36:29 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/29 17:22:56 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ ClapTrap::~ClapTrap(void) {
 	std::cout << "ClapTrap " << _name << " destructor called" << std::endl;
 }
 
+std::string		ClapTrap::getName(void) const { return (_name); }
+int				ClapTrap::getHealth(void) const { return (_health); }
+int				ClapTrap::getEnergy(void) const { return (_energy); }
+int				ClapTrap::getAtkDmg(void) const { return (_atkDmg); }
+
 void	ClapTrap::attack(std::string const& target)
 {
 	if (_health <= 0)
@@ -51,11 +56,13 @@ void	ClapTrap::attack(std::string const& target)
 	_energy--;
 	std::cout << "Claptrap " << _name << " attacks " << target << ", causing " << _atkDmg << " points of damage!" << std::endl;
 }
+
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	_health -= amount;
 	std::cout << "Claptrap " << _name << " has taken " << amount << " damage!" << std::endl;
 }
+
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_health <= 0)

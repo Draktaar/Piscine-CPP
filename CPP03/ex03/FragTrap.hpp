@@ -10,6 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#ifndef __FRAGTRAP_H__
+#define __FRAGTRAP_H__
+
 #include "ClapTrap.hpp"
 
 class FragTrap : virtual public ClapTrap
@@ -28,6 +32,10 @@ class FragTrap : virtual public ClapTrap
 		~FragTrap(void);
 
 		void	highFiveGuys(void);
+		void	attack(std::string const& target);
+		void	takeDamage(unsigned int amount);
 
 		FragTrap&	operator=(FragTrap const& pCopy);
 };
+
+#endif
