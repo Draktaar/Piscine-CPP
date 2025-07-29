@@ -6,13 +6,13 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/03 15:00:21 by achu              #+#    #+#              #
-#    Updated: 2025/07/29 10:01:14 by achu             ###   ########.fr        #
+#    Updated: 2025/07/29 10:54:50 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		rpg
 CC =		c++
-CFLAGS =	-Wall -Wextra -std=c++98
+CFLAGS =	-Wall -Wextra -std=c++98 -Wunused -Wunused-const-variable
 
 HEADERS =	sources/IMateriaSource.hpp \
 			sources/MateriaSource.hpp \

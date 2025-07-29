@@ -6,14 +6,14 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 21:37:50 by achu              #+#    #+#             */
-/*   Updated: 2025/06/30 01:19:57 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/29 11:00:02 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
 
-static const int	_franctionalBits = 8;
+const int	Fixed::_frctBits = 8;
  
 Fixed::Fixed(void) : _fpValue(0)
 {

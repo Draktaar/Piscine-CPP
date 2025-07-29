@@ -6,13 +6,13 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/26 00:50:11 by achu              #+#    #+#              #
-#    Updated: 2025/07/29 10:01:14 by achu             ###   ########.fr        #
+#    Updated: 2025/07/29 10:55:02 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		phonebook
 CC =		c++
-CFLAGS =	-Wall -Wextra -Werror -std=c++98
+CFLAGS =	-Wall -Wextra -Werror -std=c++98 -Wunused -Wunused-const-variable
 
 HEADERS =	PhoneBook.hpp \
 			Contact.hpp \
