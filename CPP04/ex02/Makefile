@@ -14,17 +14,19 @@ NAME =		animal
 CC =		c++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98 -Wunused -Wunused-const-variable
 
-EADERS =	AAnimal.hpp \
+HEADERS =	AAnimal.hpp \
 			WrongAnimal.hpp \
 			WrongCat.hpp \
 			Cat.hpp \
-			Dog.hpp
+			Dog.hpp \
+			Brain.hpp
 
 SRCS =		AAnimal.cpp \
 			WrongAnimal.cpp \
 			WrongCat.cpp \
 			Cat.cpp \
 			Dog.cpp \
+			Brain.cpp \
 			main.cpp
 
 OBJS =	$(SRCS:.cpp=.o)
