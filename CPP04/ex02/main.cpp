@@ -19,6 +19,7 @@
 
 int	main()
 {
+	//AAnimal* test = new AAnimal(); //compilator error
 	const AAnimal* j = new Dog();
 	const AAnimal* i = new Cat();
 	
