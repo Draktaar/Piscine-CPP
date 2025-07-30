@@ -33,7 +33,9 @@ class Cat : public Animal
 
 		Cat&	operator=(Cat const& pCopy);
 
-		void	makeSound(void) const;
+		void		makeSound(void) const;
+		void		fillIdeas(void);
+		void		getIdeas(int pIdx) const;
 };
 
 #endif

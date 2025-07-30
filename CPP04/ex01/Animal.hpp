@@ -33,6 +33,8 @@ class Animal
 		std::string		getType(void) const;
 
 		virtual void	makeSound(void) const;
+		virtual void	fillIdeas(void);
+		virtual void	getIdeas(int pIdx) const;
 };
 
 #endif

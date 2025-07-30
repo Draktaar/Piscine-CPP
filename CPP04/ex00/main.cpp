@@ -31,6 +31,8 @@ int	main()
 
 	a0.makeSound();
 	a1.makeSound();
+	a0.~Animal();
+	a1.~Animal();
 	std::cout << std::endl;
 
 	std::cout << RED << "///// TEST AVEC 2 CAT /////" << WHITE << std::endl;
@@ -40,6 +42,8 @@ int	main()
 
 	c0.makeSound();
 	c1.makeSound();
+	c0.~Cat();
+	c1.~Cat();
 	std::cout << std::endl;
 
 	std::cout << RED << "///// TEST AVEC 2 DOG /////" << WHITE << std::endl;
@@ -49,6 +53,8 @@ int	main()
 
 	d0.makeSound();
 	d1.makeSound();
+	d0.~Dog();
+	d1.~Dog();
 	std::cout << std::endl;
 
 	std::cout << RED << "///// TEST AVEC 2 WRONG ANIMALS /////" << WHITE << std::endl;
@@ -58,6 +64,8 @@ int	main()
 
 	wa0.makeSound();
 	wa1.makeSound();
+	wa0.~WrongAnimal();
+	wa1.~WrongAnimal();
 	std::cout << std::endl;
 
 	std::cout << RED << "///// TEST AVEC 2 WRONG CAT /////" << WHITE << std::endl;
@@ -67,9 +75,11 @@ int	main()
 
 	wc0.makeSound();
 	wc1.makeSound();
+	wc0.~WrongCat();
+	wc1.~WrongCat();
 	std::cout << std::endl;
 
-	std::cout << RED << "///// TEST DU SUJET /////" << WHITE << std::endl;
+	std::cout << RED << "///// TEST DU SUJET ANIMAL /////" << WHITE << std::endl;
 
 	const Animal*	meta = new Animal();
 	const Animal*	i = new Cat();
@@ -84,6 +94,9 @@ int	main()
 	delete meta;
 	delete j;
 	delete i;
+	std::cout << std::endl;
+
+	std::cout << RED << "///// TEST DU SUJET WRONG ANIMAL /////" << WHITE << std::endl;
 
 	const WrongAnimal*	wrong = new WrongAnimal();
 	const WrongAnimal*	cat = new WrongCat();

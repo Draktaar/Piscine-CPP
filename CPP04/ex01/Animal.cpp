@@ -52,3 +52,8 @@ void	Animal::makeSound(void) const
 {
 	std::cout << _type << ": **aseunrcbtunhclisactxz** **garbage noise** " << std::endl;
 }
+
+void	Animal::fillIdeas(void) {}
+void	Animal::getIdeas(int pIdx) const { //no brain so no access
+	(void)pIdx;
+}

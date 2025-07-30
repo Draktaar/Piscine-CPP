@@ -20,22 +20,22 @@ WrongAnimal::WrongAnimal(void)
 
 WrongAnimal::WrongAnimal(std::string pType)
 	: _type(pType) {
-	std::cout << _type << " parameterized constructor called" << std::endl;
+	std::cout << "WrongAnimal " << _type << " parameterized constructor called" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(WrongAnimal const& pCopy)
 	: _type(pCopy._type) {
-	std::cout << _type << " copy constructor called" << std::endl;
+	std::cout << "WrongAnimal " << _type << " copy constructor called" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal(void)
 {
-	std::cout << _type << " destructor called" << std::endl;
+	std::cout << "WrongAnimal " << _type << " destructor called" << std::endl;
 }
 
 WrongAnimal&	WrongAnimal::operator=(WrongAnimal const& pCopy)
 {
-	std::cout <<  _type << " copy operator called" << std::endl;
+	std::cout << "WrongAnimal " << _type << " copy operator called" << std::endl;
 	if (this != &pCopy)
 	{
 		_type = pCopy._type;

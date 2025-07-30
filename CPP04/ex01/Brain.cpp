@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 22:20:40 by achu              #+#    #+#             */
-/*   Updated: 2025/07/02 22:29:58 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/30 14:28:14 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Brain&	Brain::operator=(Brain const& pCopy) {
 	{
 		for (int i = 0; i < 100; i++) {
 			_ideas[i] = pCopy._ideas[i];
-	}
+		}
 	}
 	return (*this);
 }

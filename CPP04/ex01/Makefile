@@ -15,11 +15,15 @@ CC =		c++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98 -Wunused -Wunused-const-variable
 
 HEADERS =	Animal.hpp \
+			WrongAnimal.hpp \
+			WrongCat.hpp \
 			Cat.hpp \
 			Dog.hpp \
 			Brain.hpp
 
 SRCS =		Animal.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp \
 			Cat.cpp \
 			Dog.cpp \
 			Brain.cpp \

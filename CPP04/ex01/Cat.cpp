@@ -51,3 +51,20 @@ void	Cat::makeSound(void) const
 {
 	std::cout << _type << " **meow** **meow**" << std::endl;
 }
+
+void	Cat::fillIdeas(void)
+{
+	_brain->_ideas[0] = "eat";
+	_brain->_ideas[1] = "poop";
+	_brain->_ideas[2] = "play";
+	_brain->_ideas[3] = "sleep";
+}
+
+void		Cat::getIdeas(int pIdx) const
+{
+	if (pIdx < 0 || 99 < pIdx) {
+		std::cerr << "Error: Accessing Ideas that are out of range" << std::endl;
+		return ;
+	}
+	std::cout << _brain->_ideas[pIdx] << std::endl;
+}

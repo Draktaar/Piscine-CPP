@@ -10,6 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#define WHITE	"\e[0m"
+#define BLUE	"\e[44m"
+#define	RED		"\e[41m"
+#define YELLOW	"\e[43m"
+
 #include "Animal.hpp"
 #include "WrongAnimal.hpp"
 #include "Cat.hpp"
@@ -19,6 +24,7 @@
 
 int	main()
 {
+	std::cout << RED << "///// TEST AVEC 100 ANIMALS /////" << WHITE << std::endl;
 	Animal*	cage[100];
 
 	for (int i = 0; i < 50; i ++) {
@@ -32,11 +38,30 @@ int	main()
 		delete cage[i];
 	}
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	std::cout << RED << "///// TEST AVEC BRAIN /////" << WHITE << std::endl;
+	Dog* woof = new Dog();
+
+	woof->fillIdeas();
+	woof->getIdeas(-1);
+	woof->getIdeas(0);
+	woof->getIdeas(1);
+	woof->getIdeas(2);
+	woof->getIdeas(3);
+	woof->getIdeas(4);
+	woof->getIdeas(100);
+	woof->makeSound();
+	std::cout << std::endl;
+
+	Dog* bark = new Dog(*woof);
+
+	bark->getIdeas(0);
+	bark->getIdeas(1);
+	bark->getIdeas(2);
+	bark->getIdeas(3);
+	bark->makeSound();
 	
-	delete j;
-	delete i;
+	delete bark;
+	delete woof;
 	
 	return 0;
 }
