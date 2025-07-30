@@ -10,6 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#define WHITE	"\e[0m"
+#define BLUE	"\e[44m"
+#define	RED		"\e[41m"
+#define YELLOW	"\e[43m"
+
 #include "Animal.hpp"
 #include "WrongAnimal.hpp"
 #include "Cat.hpp"
@@ -19,6 +24,53 @@
 
 int	main()
 {
+	std::cout << RED << "///// TEST AVEC 2 ANIMALS /////" << WHITE << std::endl;
+
+	Animal	a0;
+	Animal	a1(a0);
+
+	a0.makeSound();
+	a1.makeSound();
+	std::cout << std::endl;
+
+	std::cout << RED << "///// TEST AVEC 2 CAT /////" << WHITE << std::endl;
+
+	Cat		c0;
+	Cat		c1(c0);
+
+	c0.makeSound();
+	c1.makeSound();
+	std::cout << std::endl;
+
+	std::cout << RED << "///// TEST AVEC 2 DOG /////" << WHITE << std::endl;
+
+	Dog		d0;
+	Dog		d1(d0);
+
+	d0.makeSound();
+	d1.makeSound();
+	std::cout << std::endl;
+
+	std::cout << RED << "///// TEST AVEC 2 WRONG ANIMALS /////" << WHITE << std::endl;
+
+	WrongAnimal	wa0;
+	WrongAnimal	wa1(wa0);
+
+	wa0.makeSound();
+	wa1.makeSound();
+	std::cout << std::endl;
+
+	std::cout << RED << "///// TEST AVEC 2 WRONG CAT /////" << WHITE << std::endl;
+
+	WrongCat		wc0;
+	WrongCat		wc1(wc0);
+
+	wc0.makeSound();
+	wc1.makeSound();
+	std::cout << std::endl;
+
+	std::cout << RED << "///// TEST DU SUJET /////" << WHITE << std::endl;
+
 	const Animal*	meta = new Animal();
 	const Animal*	i = new Cat();
 	const Animal*	j = new Dog();

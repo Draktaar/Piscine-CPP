@@ -14,7 +14,7 @@
 #include <iostream>
 
 Animal::Animal(void)
-	: _type("Animal") {
+	: _type("Default") {
 	std::cout << "Animal default constructor called" << std::endl;
 }
 
