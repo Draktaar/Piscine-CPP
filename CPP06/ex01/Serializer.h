@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 18:37:50 by achu              #+#    #+#             */
-/*   Updated: 2025/07/25 00:52:56 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/01 23:52:40 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 #include "Data.h"
 #include <iostream>
-#include <cstdint>
 
 class Serializer
 {
@@ -27,6 +26,7 @@ class Serializer
 		Serializer& operator=(const Serializer& pCopy);
 		
 	public:
+		typedef unsigned long long uintptr_t;
 		static uintptr_t	serialize(Data* pPtr);
 		static Data*		deserialize(uintptr_t pRaw);
 };

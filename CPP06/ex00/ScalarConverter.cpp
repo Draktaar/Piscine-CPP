@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 02:00:40 by achu              #+#    #+#             */
-/*   Updated: 2025/07/24 18:35:15 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/01 22:58:25 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,11 @@ static void		handleChar( double pLiteral )
 	char	lChar = static_cast<char>(pLiteral);
 
 	std::cout << "char: ";
-	if (!std::isprint(lChar)) {
+	if (pLiteral < 0 || 255 < pLiteral) {
+		std::cout << "impossible\n";
+		return ;
+	}
+	else if (!std::isprint(lChar)) {
 		std::cout << "undisplayable\n";
 		return ;
 	}
