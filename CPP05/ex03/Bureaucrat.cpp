@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 02:13:12 by achu              #+#    #+#             */
-/*   Updated: 2025/07/08 17:02:10 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/01 09:57:09 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ int				Bureaucrat::getGrade() const { return (_grade); }
 
 void		Bureaucrat::incGrade()
 {
-	if (_grade < 1)
+	if (_grade - 1 < 1)
 		throw (Bureaucrat::GradeTooHighException());
 	_grade--;
 }
 
 void		Bureaucrat::decGrade()
 {
-	if (_grade > 150)
+	if (_grade + 1 > 150)
 		throw (Bureaucrat::GradeTooLowException());
 	_grade++;
 }
@@ -56,9 +56,8 @@ void		Bureaucrat::signForm(AForm& pForm) const
 	try
 	{
 		pForm.beSigned(*this);
-		std::cout << getName() << " signed " << pForm.getName() << std::endl;
 	}
-	catch (const AForm::GradeTooLowExecption& e)
+	catch (const AForm::FormNotSignedException& e)
 	{
 		std::cout << getName() << " couldn't sign " << pForm.getName() << " because " << e.what() << std::endl;
 	}
@@ -68,10 +67,9 @@ void		Bureaucrat::executeForm(const AForm& pForm) const
 {
 	try
 	{
-		pForm.execute(*this);
-		std::cout << getName() << " execute " << pForm.getName() << std::endl;
+		pForm.beExecute(*this);
 	}
-	catch (const AForm::GradeTooLowExecption& e)
+	catch (const std::exception& e)
 	{
 		std::cout << getName() << " couldn't execute " << pForm.getName() << " because " << e.what() << std::endl;
 	}

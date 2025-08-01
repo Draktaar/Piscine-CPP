@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 15:59:42 by achu              #+#    #+#             */
-/*   Updated: 2025/07/08 16:22:33 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/01 09:04:08 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class RobotomyRequestForm : public AForm
 	private:
 
 		RobotomyRequestForm();
+		void	paperWork(void) const;
 
 	public:
 

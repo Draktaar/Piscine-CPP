@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 17:04:01 by achu              #+#    #+#             */
-/*   Updated: 2025/07/08 19:26:12 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/01 22:38:23 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,18 @@ class Intern
 		AForm*		newShrubbery(const std::string& pTarget) const;
 	
 	public:
-		Intern() {};
-		Intern(const Intern& pCopy) {};
-		~Intern() {};
-		Intern&	operator=(const Intern& pCopy) {};
+		Intern();
+		Intern(const Intern& pCopy);
+		~Intern();
+		Intern&	operator=(const Intern& pCopy);
 
 		AForm*	makeForm(const std::string& pFormName, const std::string& pTarget) const;
+
+		class	FormNotFoundException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 };
 
 #endif

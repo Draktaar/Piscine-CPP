@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 02:13:12 by achu              #+#    #+#             */
-/*   Updated: 2025/07/08 17:01:09 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/01 09:26:05 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Bureaucrat
 
 	public:
 
-		Bureaucrat() {};
+		Bureaucrat();
 		Bureaucrat(const std::string pName, int pGrade);
 		Bureaucrat(const Bureaucrat& pCopy);
 		Bureaucrat&	operator=(const Bureaucrat& pCopy);

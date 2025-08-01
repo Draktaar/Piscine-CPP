@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 16:00:55 by achu              #+#    #+#             */
-/*   Updated: 2025/07/08 19:20:14 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/01 09:04:11 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class PresidentialPardonForm : public AForm
 	private:
 
 		PresidentialPardonForm();
+		void	paperWork(void) const;
 
 	public:
 

@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 02:13:12 by achu              #+#    #+#             */
-/*   Updated: 2025/07/08 15:47:46 by achu             ###   ########.fr       */
+/*   Updated: 2025/07/31 15:01:32 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 Bureaucrat::Bureaucrat() : _name("Employee"), _grade(150) {}
 
-Bureaucrat::Bureaucrat(const std::string pName, int pGrade) 
+Bureaucrat::Bureaucrat(const std::string& pName, int pGrade) 
 	: _name(pName), _grade(pGrade) {
 	if (pGrade < 1)
 		throw (GradeTooHighException());
 	else if (pGrade > 150)
-		throw (GradeTooHighException());
+		throw (GradeTooLowException());
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& pCopy) : _name(pCopy._name), _grade(pCopy._grade) {}
+Bureaucrat::Bureaucrat(const Bureaucrat& pCopy)
+	: _name(pCopy._name), _grade(pCopy._grade)
+{}
 
 Bureaucrat&		Bureaucrat::operator=(const Bureaucrat& pCopy)
 {
@@ -38,14 +40,14 @@ int				Bureaucrat::getGrade() const { return (_grade); }
 
 void		Bureaucrat::incGrade()
 {
-	if (_grade < 1)
+	if (_grade - 1 < 1)
 		throw (GradeTooHighException());
 	_grade--;
 }
 
 void		Bureaucrat::decGrade()
 {
-	if (_grade > 150)
+	if (_grade + 1 > 150)
 		throw (GradeTooLowException());
 	_grade++;
 }
@@ -62,6 +64,6 @@ const char*		Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream&		operator<<(std::ostream& pOut, const Bureaucrat& pBureaucrat)
 {
-	pOut << pBureaucrat.getName() << ", bureaucrat grade " << pBureaucrat.getGrade() << "." << std::endl;
+	pOut << pBureaucrat.getName() << ", bureaucrat grade " << pBureaucrat.getGrade() << ".";
 	return (pOut);
 }

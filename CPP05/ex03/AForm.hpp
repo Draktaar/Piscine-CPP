@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 15:57:40 by achu              #+#    #+#             */
-/*   Updated: 2025/07/08 17:18:59 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/01 09:53:44 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ class AForm
 		AForm(std::string pName, std::string pTarget, bool pIsSigned, int pGradeSign, int pGradeExec);
 		AForm&	operator=(const AForm& pCopy);
 	
+		virtual void	paperWork(void) const = 0;
+	
 	public:
 
 		virtual ~AForm();
@@ -44,18 +46,24 @@ class AForm
 		std::string		getTarget() const;
 		bool			getIsSigned() const;
 		int				getGradeSign() const;
-		int				getGradeExec() const;
+		int				getGradeExecute() const;
 
 		void	beSigned(const Bureaucrat& pBureaucrat);
-		void	execute(const Bureaucrat& pBureaucrat) const;
-
-		class GradeTooHighExecption : std::exception
+		void	beExecute(const Bureaucrat& pBureaucrat) const;
+		
+		class FormNotSignedException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
 
-		class GradeTooLowExecption : std::exception
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+
+		class GradeTooLowException : public  std::exception
 		{
 			public:
 				virtual const char* what() const throw();
@@ -63,5 +71,6 @@ class AForm
 };
 
 std::ostream&	operator<<(std::ostream& pOut, const AForm& pForm);
+
 
 #endif

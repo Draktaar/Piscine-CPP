@@ -6,7 +6,7 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/03 15:00:21 by achu              #+#    #+#              #
-#    Updated: 2025/07/29 10:56:04 by achu             ###   ########.fr        #
+#    Updated: 2025/08/01 09:27:13 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ HEADERS =	Bureaucrat.hpp \
 			AForm.hpp \
 			PresidentialPardonForm.hpp \
 			RobotomyRequestForm.hpp \
-			ShrubberyCreationForm.hpp \
+			ShrubberyCreationForm.hpp
 			
 
 SRCS =		Bureaucrat.cpp \

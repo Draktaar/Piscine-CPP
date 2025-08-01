@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 15:58:40 by achu              #+#    #+#             */
-/*   Updated: 2025/07/08 19:20:32 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/01 09:04:00 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class ShrubberyCreationForm : public AForm
 	private:
 
 		ShrubberyCreationForm();
+		void	paperWork(void) const;
 
 	public:
 
