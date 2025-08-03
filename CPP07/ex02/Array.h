@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 23:46:36 by achu              #+#    #+#             */
-/*   Updated: 2025/07/28 00:42:58 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/03 02:12:53 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,16 @@ class Array
 		Array(unsigned int pLen);
 		Array(const Array& pCopy);
 		~Array(void);
-		Array&	operator=(const Array& pCopy);
 
 		int	size(void) const;
 
-		class OutOfBoundException : std::exception {
+		Array&	operator=(const Array& pCopy);
+		T&		operator[](unsigned int pIdx);
+
+		class OutOfRangeException : public std::exception {
 			public:
 				const char*	what() const throw();
-		}
+		};
 };
 
 #include "Array.tpp"

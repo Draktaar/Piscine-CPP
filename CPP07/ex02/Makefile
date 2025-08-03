@@ -6,7 +6,7 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/03 15:00:21 by achu              #+#    #+#              #
-#    Updated: 2025/07/29 10:56:35 by achu             ###   ########.fr        #
+#    Updated: 2025/08/03 01:43:23 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,7 @@ CFLAGS =	-Wall -Wextra -Werror -std=c++98 -Wunused -Wunused-const-variable
 
 HEADERS =	Array.h
 
-SRCS =		Array.tpp \
-			main.cpp
+SRCS =		main.cpp
 
 OBJS =	$(SRCS:.cpp=.o)
 
