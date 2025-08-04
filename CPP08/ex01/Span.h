@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 23:46:36 by achu              #+#    #+#             */
-/*   Updated: 2025/07/27 18:12:07 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/04 09:22:15 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ class Span
 		std::vector<int>	_span;
 		unsigned int		N;
 
-	public:
+	private:
 
 		Span(void);
+
+	public:
+
 		Span(unsigned int pN);
 		Span(const Span& pCopy);
 		~Span(void);
@@ -37,12 +40,12 @@ class Span
 		int		shortestSpan(void) const;
 		int		longestSpan(void) const;
 
-		class OverflowException : std::exception {
+		class OverflowException : public std::exception {
 			public:
 				const char*	what() const throw();
 		};
 
-		class EmptyException : std::exception {
+		class EmptyException : public std::exception {
 			public:
 				const char*	what() const throw();
 		};

@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 15:12:54 by achu              #+#    #+#             */
-/*   Updated: 2025/07/27 18:18:16 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/04 10:52:52 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,16 @@
 
 Span::Span(void)
 	: N(0)
-{}
+{
+	throw EmptyException();
+}
 
 Span::Span(unsigned int pN)
 	: N(pN)
-{}
+{
+	if (pN <= 1)
+		throw EmptyException();
+}
 
 Span::Span(const Span& pCopy)
 	: N(pCopy.N)
@@ -87,5 +92,5 @@ const char*	Span::OverflowException::what() const throw()
 
 const char*	Span::EmptyException::what() const throw()
 {
-	return ("Error: Empty or one number inside the container.");
+	return ("Error: Initialization with no or one number.");
 }
