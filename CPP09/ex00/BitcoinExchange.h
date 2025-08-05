@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 23:00:16 by achu              #+#    #+#             */
-/*   Updated: 2025/08/05 11:41:39 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/05 16:03:23 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ class BitcoinExchange
 	private:
 
 		std::map<std::string, double>	_map;
-		std::fstream	_iFile;
-		std::fstream	_oFile;
+
+		std::string		_fileName;
+		std::ifstream	_input;
 
 	private:
 
@@ -46,11 +47,6 @@ class BitcoinExchange
 		BitcoinExchange&	operator=(const BitcoinExchange& pCopy);
 
 		class InputException : public std::exception {
-			public:
-				const char*	what() const throw();
-		};
-
-		class OutputException : public std::exception {
 			public:
 				const char*	what() const throw();
 		};
