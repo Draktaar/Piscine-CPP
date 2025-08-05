@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/08 15:05:53 by achu              #+#    #+#             */
-/*   Updated: 2025/07/08 15:49:50 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/05 13:41:44 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Form
 
 		Form();
 		Form(const Form& pCopy);
+		Form(std::string pName, bool pIsSigned, int pGradeSign, int pGradeExec);
 		Form&	operator=(const Form& pCopy);
 		~Form();
 
@@ -42,13 +43,13 @@ class Form
 
 		void	beSigned(const Bureaucrat& pBureaucrat);
 
-		class GradeTooHighExecption : std::exception
+		class GradeTooHighException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
 		};
 
-		class GradeTooLowExecption : std::exception
+		class GradeTooLowException : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();

@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/05 02:13:12 by achu              #+#    #+#             */
-/*   Updated: 2025/07/08 15:55:03 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/05 13:38:00 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		Bureaucrat::signForm(Form& pForm) const
 		pForm.beSigned(*this);
 		std::cout << getName() << " signed " << pForm.getName() << std::endl;
 	}
-	catch (const Form::GradeTooLowExecption& e)
+	catch (const Form::GradeTooLowException& e)
 	{
 		std::cout << getName() << " couldn't sign " << pForm.getName() << " because " << e.what() << std::endl;
 	}
