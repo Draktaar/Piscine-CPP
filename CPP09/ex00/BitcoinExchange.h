@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 23:00:16 by achu              #+#    #+#             */
-/*   Updated: 2025/08/05 00:44:27 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/05 11:41:39 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,26 @@ class BitcoinExchange
 	private:
 
 		BitcoinExchange(void);
-		std::vector<std::string>	Split(const std::string& pStr, const std::string& p);
+
+		void	LoadData();
+		std::vector<std::string>	Split(const std::string& pStr, const std::string& pDelim);
 
 	public:
 
-		BitcoinExchange(std::string pFile);
+		BitcoinExchange(const std::string& pFile);
 		BitcoinExchange(const BitcoinExchange& pCopy);
 		~BitcoinExchange(void);
 
-		
+		void	Exchage(void);
 
 		BitcoinExchange&	operator=(const BitcoinExchange& pCopy);
 
-		class FileException : public std::exception {
+		class InputException : public std::exception {
+			public:
+				const char*	what() const throw();
+		};
+
+		class OutputException : public std::exception {
 			public:
 				const char*	what() const throw();
 		};
