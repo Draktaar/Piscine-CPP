@@ -6,13 +6,18 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 23:00:16 by achu              #+#    #+#             */
-/*   Updated: 2025/08/05 16:03:23 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/06 21:34:58 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #ifndef __BITCOINT_EXCHANGE_H__
 #define __BITCOINT_EXCHANGE_H__
+
+#define WHITE	"\e[0m"
+#define BLUE	"\e[44m"
+#define	RED		"\e[41m"
+#define YELLOW	"\e[43m"
 
 #include <map>
 #include <vector>
@@ -28,13 +33,14 @@ class BitcoinExchange
 
 		std::string		_fileName;
 		std::ifstream	_input;
+		std::ifstream	_data;
 
 	private:
 
 		BitcoinExchange(void);
 
-		void	LoadData();
-		std::vector<std::string>	Split(const std::string& pStr, const std::string& pDelim);
+		void			loadData(void);
+		double			calculateBitcoin(const std::string& pDate, const double& pNumber) const;
 
 	public:
 
@@ -42,14 +48,39 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange& pCopy);
 		~BitcoinExchange(void);
 
-		void	Exchage(void);
-
+		void	exchange(void);
 		BitcoinExchange&	operator=(const BitcoinExchange& pCopy);
+
+		class FileException : public std::exception {
+			public:
+				const char*	what() const throw();
+		};
 
 		class InputException : public std::exception {
 			public:
 				const char*	what() const throw();
 		};
+
+		class DigitException : public std::exception {
+			public:
+				const char*	what() const throw();
+		};
+
+		class OverflowException : public std::exception {
+			public:
+				const char*	what() const throw();
+		};
+
+		class NegativeException : public std::exception {
+			public:
+				const char*	what() const throw();
+		};
+
+		class DateException : public std::exception {
+			public:
+				const char*	what() const throw();
+		};
+
 };
 
 #endif
