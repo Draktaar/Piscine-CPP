@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 23:00:16 by achu              #+#    #+#             */
-/*   Updated: 2025/08/06 21:34:58 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/06 23:59:53 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ class BitcoinExchange
 				const char*	what() const throw();
 		};
 
-		class NegativeException : public std::exception {
+		class UnderflowException : public std::exception {
 			public:
 				const char*	what() const throw();
 		};

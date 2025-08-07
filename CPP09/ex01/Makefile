@@ -6,17 +6,17 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 20:46:13 by achu              #+#    #+#              #
-#    Updated: 2025/08/06 23:49:55 by achu             ###   ########.fr        #
+#    Updated: 2025/08/07 00:05:21 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		btc
+NAME =		RPN
 CC =		c++
 CFLAGS =	-Wall -Wextra -Werror -std=c++98 -Wunused -Wunused-const-variable
 
-HEADERS =	BitcoinExchange.h
+HEADERS =	RPN.h
 
-SRCS =		BitcoinExchange.cpp \
+SRCS =		RPN.cpp \
 			main.cpp
 
 OBJS =	$(SRCS:.cpp=.o)

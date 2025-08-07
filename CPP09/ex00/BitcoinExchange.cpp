@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 23:00:20 by achu              #+#    #+#             */
-/*   Updated: 2025/08/06 21:47:39 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/07 13:34:43 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static bool		isValidNumber(const std::string& pValue)
 			throw BitcoinExchange::DigitException();
 	}
 	if (lValue < 0)
-		throw BitcoinExchange::NegativeException();
+		throw BitcoinExchange::UnderflowException();
 	if (lValue > 1000)
 		throw BitcoinExchange::OverflowException();
 	return (true);
@@ -113,11 +113,7 @@ BitcoinExchange::BitcoinExchange(const std::string& pFile)
 	if (!_data.is_open())
 		throw FileException();
 
-	try {
-    	loadData();
-	} catch (const std::exception& e) {
-    	std::cerr << "Error: " << e.what() << std::endl;
-	}
+	loadData();
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& pCopy)
@@ -256,7 +252,7 @@ const char*		BitcoinExchange::OverflowException::what() const throw()
 	return ("Error: Overflow Int");
 }
 
-const char*		BitcoinExchange::NegativeException::what() const throw()
+const char*		BitcoinExchange::UnderflowException::what() const throw()
 {
 	return ("Error: Negative Number");
 }
