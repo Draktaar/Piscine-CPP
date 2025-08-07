@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 23:44:07 by achu              #+#    #+#             */
-/*   Updated: 2025/08/07 13:38:42 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/07 14:29:59 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ RPN::RPN(void)
 RPN::RPN(const std::string& pExpr)
 	: _expr(pExpr)
 {
+	if (_expr.empty())
+		throw ArithmeticException();
 	checkExpr();
 }
 

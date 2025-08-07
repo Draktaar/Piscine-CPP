@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 23:00:16 by achu              #+#    #+#             */
-/*   Updated: 2025/08/06 23:59:53 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/07 16:33:37 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@
 #define	RED		"\e[41m"
 #define YELLOW	"\e[43m"
 
-#include <map>
-#include <vector>
 #include <fstream>
 #include <string>
+#include <map>
 #include <exception>
 
 class BitcoinExchange

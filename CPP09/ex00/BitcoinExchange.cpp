@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 23:00:20 by achu              #+#    #+#             */
-/*   Updated: 2025/08/07 13:34:43 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/07 16:33:47 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,10 @@
 #include <cstdlib>
 #include <string>
 #include <map>
-#include <list>
-#include <limits>
 
 //#****************************************************************************#
 //#                             STATIC FUNCTION                                #
 //#****************************************************************************#
-
-static std::list<std::string>	split(std::string pStr, const std::string& pDelim)
-{
-	std::list<std::string>	lTokens;
-	std::string				lToken;
-	size_t					lPos = 0;
-
-	while ((lPos = pStr.find(pDelim)) != std::string::npos) {
-		lToken = pStr.substr(0, lPos);
-		if (!lToken.empty())
-			lTokens.push_back(lToken);
-		pStr.erase(0, lPos + pDelim.length());
-	}
-	lTokens.push_back(pStr);
-	return (lTokens);
-}
 
 static std::string		trim(std::string pStr)
 {
@@ -146,11 +128,13 @@ void	BitcoinExchange::loadData(void)
 	std::getline(_data, lLine);
 	while (std::getline(_data, lLine))
 	{
-		std::list<std::string>				lTokens = split(lLine, ",");
-		std::list<std::string>::iterator	lTokenIt = lTokens.begin();
+		size_t 			lPos = lLine.find(",");
 
-		std::string		lDate = *lTokenIt;
-		std::string		lValue = *(++lTokenIt);
+		if (lPos == std::string::npos)
+				throw InputException();
+
+		std::string		lDate = trim(lLine.substr(0, lPos));
+		std::string		lValue = trim(lLine.substr(lPos + 1));
 
 		_map[lDate] = std::atof(lValue.c_str());
 	}
@@ -183,15 +167,14 @@ void	BitcoinExchange::exchange(void)
 		{
 			if (lLine.empty() || lLine[0] == '#') // skip comment or empty lines
         		continue;
-			std::list<std::string>				lTokens = split(lLine, "|");
-			std::list<std::string>::iterator	lTokenIt = lTokens.begin();
 
-			std::string	lDate = trim(*lTokenIt);
+			size_t 			lPos = lLine.find("|");
 
-			if (lTokens.size() < 2)
+			if (lPos == std::string::npos)
 				throw InputException();
-			
-			std::string	lNumber = trim(*(++lTokenIt));
+
+			std::string		lDate = trim(lLine.substr(0, lPos));
+			std::string		lNumber = trim(lLine.substr(lPos + 1));
 
 			isValidDate(lDate);
 			isValidNumber(lNumber);
