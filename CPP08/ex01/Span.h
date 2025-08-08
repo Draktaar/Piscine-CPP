@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 23:46:36 by achu              #+#    #+#             */
-/*   Updated: 2025/08/04 09:22:15 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/08 15:50:08 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,14 @@ class Span
 		~Span(void);
 		Span&	operator=(const Span& pCopy);
 
+
+		template <typename IT>
+		void	addNumber(IT pBegin, IT pEnd)
+		{
+			if (std::distance(pBegin, pEnd) + _span.size() > N)
+				throw (OverflowException());
+			_span.insert(_span.end(), pBegin, pEnd);
+		}
 		void	addNumber(int pNum);
 		int		shortestSpan(void) const;
 		int		longestSpan(void) const;

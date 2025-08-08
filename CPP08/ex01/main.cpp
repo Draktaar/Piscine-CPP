@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 23:45:32 by achu              #+#    #+#             */
-/*   Updated: 2025/08/04 11:01:39 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/08 15:49:58 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,17 +72,18 @@ int main(void)
 	}
 	std::cout << std::endl;
 
-	std::cout << RED << "///// TEST TEN THOUSAND /////" << WHITE << std::endl;
+	std::cout << RED << "///// TEST TWENTY THOUSAND /////" << WHITE << std::endl;
 
 	try
 	{
-		Span tou = Span(20000);
-
+		std::vector<int>full;
 		std::srand(static_cast<unsigned int>(std::time(NULL)));
 		for (int i = 0; i < 20000; i++) {
-			tou.addNumber(std::rand());
+			full.push_back(std::rand());
 		}
-		
+
+		Span tou(20000);
+		tou.addNumber(full.begin(), full.end());
 		std::cout << "Shortest Span: " << tou.shortestSpan() << std::endl;
 		std::cout << "Longest Span: " << tou.longestSpan() << std::endl;
 	}
