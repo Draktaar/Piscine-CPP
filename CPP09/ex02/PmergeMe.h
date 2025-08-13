@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 15:00:21 by achu              #+#    #+#             */
-/*   Updated: 2025/08/07 17:41:25 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/13 20:57:18 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,23 @@ class PmergeMe
 
 	private:
 
-		PmergeMe(void);
+		
 
 	public:
 
-		PmergeMe(const std::string& pExpr);
+		PmergeMe(void);
 		PmergeMe(const PmergeMe& pCopy);
 		~PmergeMe(void);
 
+		static void		logVector(const std::vector<int>& pContainer, const std::string& pMessage);
+
+		static void		mergeVector(std::vector<int>& pContainer, int pLVL);
+
+		static void		insertVector(std::vector<int>& pMain, std::vector<int>& pPend, std::vector<int>& pLeft, std::vector<int>& pContainer, const int& pSeqSize);
 
 		PmergeMe&	operator=(const PmergeMe& pCopy);
 
-		class Exception : public std::exception {
+		class InvalidException : public std::exception {
 			public:
 				const char*	what() const throw();
 		};

@@ -6,13 +6,13 @@
 #    By: achu <achu@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 20:46:13 by achu              #+#    #+#              #
-#    Updated: 2025/08/07 15:00:44 by achu             ###   ########.fr        #
+#    Updated: 2025/08/12 22:23:46 by achu             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		PmergeMe
 CC =		c++
-CFLAGS =	-Wall -Wextra -Werror -std=c++98 -Wunused -Wunused-const-variable
+CFLAGS =	-Wall -Wextra -std=c++98 -Wunused -Wunused-const-variable
 
 HEADERS =	PmergeMe.h
 
