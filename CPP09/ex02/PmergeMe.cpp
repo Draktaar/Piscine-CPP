@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 15:00:21 by achu              #+#    #+#             */
-/*   Updated: 2025/08/14 00:32:34 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/15 01:00:07 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,129 +48,92 @@ static std::vector<int>	jacobsthal(int pN)
 //#                        CONSTRUCTOR & DESTRUCTOR                            #
 //#****************************************************************************#
 
-PmergeMe::PmergeMe(void)
-{
-	throw InvalidException();
-}
+PmergeMe::PmergeMe(void) {}
 
 PmergeMe::PmergeMe(const PmergeMe& pCopy)
 {
-	
+	(void)pCopy;
 }
 
-PmergeMe::~PmergeMe(void)
-{
-	
-}
+PmergeMe::~PmergeMe(void) {}
 
 //#****************************************************************************#
 //#                             MEMBER FUNCTION                                #
 //#****************************************************************************#
 
-void	PmergeMe::logVector(const std::vector<int>& pContainer, const std::string& pMessage)
+void	PmergeMe::fordjohnsonVector(std::vector<int>& pContainer, int pSeqSize)
 {
-	std::cout << pMessage;
-	for (std::vector<int>::const_iterator it = pContainer.begin(); it != pContainer.end(); it++) {
-		if (it != pContainer.begin() && it != pContainer.end())
-			std::cout << " ";
-		std::cout << *it;
-	}
-	std::cout << std::endl;
-}
+	//------------------------------------------------------------------------------
+	// Merge swap pairs of pairs of pairs
+	//------------------------------------------------------------------------------
 
-void	PmergeMe::insertVector(std::vector<int>& main, std::vector<int>& pend, std::vector<int>& left, std::vector<int>& pContainer, const int& pSeqSize)
-{
-	
-}
-
-void	PmergeMe::mergeVector(std::vector<int>& pContainer, int pSeqSize)
-{
 	int		pairSize = pSeqSize * 2;
 	int		maxPair = static_cast<int>(pContainer.size() / pairSize);
 
 	if (maxPair <= 0) //if this recursion cannot create another pair, end the recursion
 		return ;
 
-	bool	isOdd = maxPair % 2 == 1; //gives the bool isOdd of total of 2 pairs
-
 	std::vector<int>::iterator	start = pContainer.begin();
 	std::vector<int>::iterator	end = pContainer.begin() + (pairSize * maxPair);
 
-	for (std::vector<int>::iterator it = start; it < end; it += pairSize)
+	for (std::vector<int>::iterator it = start; it < end; it += pairSize) // swap the block if the first block is bigger than the second block in a pair to ensure order of sequence inside a block
 	{
 		if (*(it + pSeqSize - 1) > *(it + pairSize - 1))
 			std::swap_ranges(it, it + pSeqSize, it + pSeqSize);
 	}
 
-	mergeVector(pContainer, pSeqSize * 2);
+	fordjohnsonVector(pContainer, pSeqSize * 2); // recursively call merge func until not pair can match
 
 	//------------------------------------------------------------------------------
+	// Initialization for the main, pend and leftovers
 	//------------------------------------------------------------------------------
 
 	std::vector<int>	main;
 	std::vector<int>	pend;
 	std::vector<int>	left;
 
-	bool	newIsOdd = static_cast<int>((pContainer.size() / pSeqSize)) % 2 == 1;
-	std::vector<int>::iterator	newEnd = end + (newIsOdd * pSeqSize);
+	bool	isOdd = static_cast<int>((pContainer.size() / pSeqSize)) % 2 == 1;
+	std::vector<int>::iterator	newEnd = end + (isOdd * pSeqSize);
 
 	bool	isPend = true;
-	for (std::vector<int>::iterator it = start; it < newEnd; it += pSeqSize)
+	for (std::vector<int>::iterator it = start; it < newEnd; it += pSeqSize) // insert each block to a container, starting with pend then alternating with main
 	{
 		isPend ? pend.insert(pend.end(), it, it + pSeqSize) : main.insert(main.end(), it, it + pSeqSize);
 		isPend = !isPend;
 	}
-	left.insert(left.end(), newEnd, pContainer.end());
-	std::cout << "Pend: ";
-	for (std::vector<int>::iterator it = pend.begin(); it < pend.end(); it += 1)
-		std::cout << *it << " ";
-	std::cout << std::endl;
-	std::cout << "Main: ";
-	for (std::vector<int>::iterator it = main.begin(); it < main.end(); it += 1)
-		std::cout << *it << " ";
-	std::cout << std::endl;
-	std::cout << "Left: ";
-	for (std::vector<int>::iterator it = left.begin(); it < left.end(); it += 1)
-		std::cout << *it << " ";
-	std::cout << std::endl;
+	left.insert(left.end(), newEnd, pContainer.end()); // if it cannot form a block the rest goes to the leftovers
 
 	//------------------------------------------------------------------------------
+	// Insert pend inside main using jacobshtal numbers
 	//------------------------------------------------------------------------------
 
-	int		seqPendSize = static_cast<int>(pend.size() / pSeqSize); // Numbers of sequence inside the Pend
+	int		seqPendSize = static_cast<int>(pend.size() / pSeqSize); // numbers of sequence inside the Pend
 
-	std::vector<int> js = jacobsthal(seqPendSize);
-	js.push_back(seqPendSize);
+	std::vector<int> js = jacobsthal(seqPendSize); // generate the jacobshtal numbers
+	js.push_back(seqPendSize); // add the max size of sequence depending on the sequence size inside pend so it can loop reversal for the last number after jacobshtal
 
 	for (std::vector<int>::iterator	it = js.begin() + 2; it < js.end(); it++)
 	{
-		if (*it == 1) {
+		if (*it == 1) { // rule 1: first block of pend is always inserted in the begin of main
 			main.insert(main.begin(), pend.begin(), pend.begin() + pSeqSize);
 			continue;
 		}
 		for (int i = *it; i != *(it - 1); i--)
 		{
-			std::vector<int> block_last_elements;
-			for (size_t j = 0; j < main.size(); j += pSeqSize)
-    			block_last_elements.push_back(main[j + pSeqSize - 1]);
+			std::vector<int> seqLast;
+			for (size_t j = 0; j < main.size(); j += pSeqSize) // create a container with only the last number of a sequence to easily compare to
+    			seqLast.push_back(main[j + pSeqSize - 1]);
 			
-			int	last = *(pend.begin() + (i * pSeqSize - 1));
-			std::vector<int>::iterator	pos = std::lower_bound(block_last_elements.begin(), block_last_elements.end(), last);
+			int	last = *(pend.begin() + (i * pSeqSize - 1)); // binary search the sequence index searching the optimal position using jacobshtal numbers
+			std::vector<int>::iterator	pos = std::lower_bound(seqLast.begin(), seqLast.end(), last);
 
-			int	dist = std::distance(block_last_elements.begin(), pos) * pSeqSize;
+			int	dist = std::distance(seqLast.begin(), pos) * pSeqSize;
 
-			main.insert(main.begin() + dist, pend.begin() + (i - 1) * pSeqSize, pend.begin() + i * pSeqSize);
+			main.insert(main.begin() + dist, pend.begin() + (i - 1) * pSeqSize, pend.begin() + i * pSeqSize); // insert the block to the corresponding placement
 		}
 	}
-	std::cout << std::endl;
-
-	main.insert(main.end(), left.begin(), left.end());
+	main.insert(main.end(), left.begin(), left.end()); // insert leftovers numbers back to the main
 	pContainer = main;
-
-	for (std::vector<int>::iterator it = main.begin(); it < main.end(); it += 1)
-		std::cout << *it << " ";
-	std::cout << std::endl;
-	std::cout << std::endl;
 }
 
 //#****************************************************************************#
@@ -179,18 +142,6 @@ void	PmergeMe::mergeVector(std::vector<int>& pContainer, int pSeqSize)
 
 PmergeMe&	PmergeMe::operator=(const PmergeMe& pCopy)
 {
-	if (this != &pCopy)
-	{
-		
-	}
+	(void)pCopy;
 	return (*this);
-}
-
-//#****************************************************************************#
-//#                                EXCEPTION                                   #
-//#****************************************************************************#
-
-const char*		PmergeMe::InvalidException::what() const throw()
-{
-	return ("Error: ");
 }

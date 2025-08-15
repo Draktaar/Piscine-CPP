@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 23:47:00 by achu              #+#    #+#             */
-/*   Updated: 2025/08/13 21:47:32 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/15 13:03:25 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,24 @@
 #include <iostream>
 #include <cstdlib>
 
+template <typename Container>
+static Container	parseArgs(int pAc, const char** pAv)
+{
+	Container	seq;
+	int			nbr;
+
+	for (int i = 1; i < pAc; i++)
+	{
+		nbr = std::atoi(pAv[i]);
+		seq.push_back(nbr);
+	}
+	return (seq);
+}
+
 static bool		checkArgv(std::string pAv)
 {
 	std::string		lDigit = "0123456789";
 	return (pAv.find_first_not_of(lDigit) == std::string::npos);
-}
-
-static std::vector<int>	parseVector(int pAc, const char** pAv)
-{
-	std::vector<int>	seq;
-	int					lValue;
-
-	for (int i = 1; i < pAc; i++)
-	{
-		lValue = std::atoi(pAv[i]);
-		seq.push_back(lValue);
-	}
-	return (seq);
 }
 
 int main(int ac, const char **av)
@@ -50,9 +51,13 @@ int main(int ac, const char **av)
 
 	try
 	{
-		std::vector<int>	_vector = parseVector(ac, av);
-		//PmergeMe::logVector(_vector, "Before: ");
-		PmergeMe::mergeVector(_vector, 1);
+		std::vector<int>	_vector = parseArgs<std::vector <int> >(ac, av);
+		std::list<int>	_list = parseArgs<std::list <int> >(ac, av);
+
+		PmergeMe::log(_vector.begin(), _vector.end(), "Before: ");
+		PmergeMe::log(_list.begin(), _list.end());
+		PmergeMe::fordjohnsonVector(_vector, 1);
+		PmergeMe::log(_vector.begin(), _vector.end(), "After: ");
 
 	} catch(const std::exception& e) {
 		std::cerr << e.what() << std::endl;
