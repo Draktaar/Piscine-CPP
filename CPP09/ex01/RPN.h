@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 23:44:05 by achu              #+#    #+#             */
-/*   Updated: 2025/08/07 13:38:46 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/16 12:33:06 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 #define __RPN_H__
 
 #include <string>
-#include <stack>
+#include <list>
 #include <exception>
 
 class RPN
 {
 	private:
 
-		std::stack<int>		_stack;
+		std::list<int>		_stack;
 		std::string			_expr;
 
 	private:

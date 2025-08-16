@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 23:44:07 by achu              #+#    #+#             */
-/*   Updated: 2025/08/07 14:29:59 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/16 12:34:30 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <string>
+#include <list>
 
 //#****************************************************************************#
 //#                        CONSTRUCTOR & DESTRUCTOR                            #
@@ -55,8 +56,8 @@ void	RPN::ops(char pOperator)
 	if (_stack.size() < 2)
 		throw OperandException();
 
-	b = _stack.top(); _stack.pop();
-	a = _stack.top(); _stack.pop();
+	b = _stack.back(); _stack.pop_back();
+	a = _stack.back(); _stack.pop_back();
 	switch (pOperator)
 	{
 		case '+':
@@ -74,7 +75,7 @@ void	RPN::ops(char pOperator)
 			result = a / b;
 			break;
 	}
-	_stack.push(result);
+	_stack.push_back(result);
 }
 
 void	RPN::checkExpr(void) const
@@ -96,7 +97,7 @@ void	RPN::resolve(void)
 		while (*buf == ' ')
 			buf++;
 		if (std::isdigit(*buf))
-			_stack.push(static_cast<int>(*buf - '0'));
+			_stack.push_back(static_cast<int>(*buf - '0'));
 		else if (*buf == '+' || *buf == '-' || *buf == '*' || *buf == '/')
 			ops(*buf);
 		++buf;
@@ -105,7 +106,7 @@ void	RPN::resolve(void)
 	}
 	if (_stack.size() > 1)
 		throw OperandException();
-	std::cout << _stack.top() << std::endl;
+	std::cout << _stack.back() << std::endl;
 }
 
 //#****************************************************************************#

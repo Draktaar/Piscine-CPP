@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 23:47:00 by achu              #+#    #+#             */
-/*   Updated: 2025/08/15 13:03:25 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/16 12:32:14 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,14 @@ int main(int ac, const char **av)
 	try
 	{
 		std::vector<int>	_vector = parseArgs<std::vector <int> >(ac, av);
-		std::list<int>	_list = parseArgs<std::list <int> >(ac, av);
+		std::deque<int>		_deque = parseArgs<std::deque <int> >(ac, av);
 
 		PmergeMe::log(_vector.begin(), _vector.end(), "Before: ");
-		PmergeMe::log(_list.begin(), _list.end());
-		PmergeMe::fordjohnsonVector(_vector, 1);
+		PmergeMe::log(_deque.begin(), _deque.end(), "Before: ");
+		PmergeMe::fordjohnson(_vector, 1);
+		PmergeMe::fordjohnson(_deque, 1);
 		PmergeMe::log(_vector.begin(), _vector.end(), "After: ");
+		PmergeMe::log(_deque.begin(), _deque.end(), "After: ");
 
 	} catch(const std::exception& e) {
 		std::cerr << e.what() << std::endl;

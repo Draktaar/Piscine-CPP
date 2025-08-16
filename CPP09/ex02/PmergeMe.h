@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 15:00:21 by achu              #+#    #+#             */
-/*   Updated: 2025/08/15 13:02:49 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/16 12:29:07 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,11 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <list>
+#include <deque>
 #include <exception>
 
 class PmergeMe
 {
-	private:
-
-		std::vector<int>		_vector;
-		std::list<int>			_list;
-
-	private:
-
-		
-
 	public:
 
 		PmergeMe(void);
@@ -40,22 +31,12 @@ class PmergeMe
 		template <typename Iterator>
 		static void		log(const Iterator& pBegin, const Iterator& pEnd, const std::string &pMessage = "");
 	
-		static void		fordjohnsonVector(std::vector<int>& pContainer, int pLVL);
-		static void		fordjohnsonList(std::list<int>& pContainer, int pLVL);
+		template <typename Container>
+		static void		fordjohnson(Container& pContainer, int pSeqSize);
 
 		PmergeMe&	operator=(const PmergeMe& pCopy);
 };
 
-template <typename Iterator>
-inline void		PmergeMe::log(const Iterator& pBegin, const Iterator& pEnd, const std::string &pMessage)
-{
-	std::cout << pMessage;
-	for (Iterator it = pBegin; it != pEnd; it++) {
-		if (it != pBegin && it != pEnd)
-			std::cout << " ";
-		std::cout << *it;
-	}
-	std::cout << std::endl;
-}
+#include "PmergeMe.tpp"
 
 #endif
