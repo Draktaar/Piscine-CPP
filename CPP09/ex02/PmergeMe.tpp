@@ -6,7 +6,7 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 12:27:13 by achu              #+#    #+#             */
-/*   Updated: 2025/08/16 12:31:17 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/17 00:51:59 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	PmergeMe::fordjohnson(Container& pContainer, int pSeqSize)
 	typename Container::iterator	newEnd = end + (isOdd * pSeqSize);
 
 	bool	isPend = true;
-	for (typename Container::iterator it = start; it < newEnd; it += pSeqSize) // insert each block to a container, starting with pend then alternating with main
+	for (typename Container::iterator it = start; it != newEnd; it += pSeqSize) // insert each block to a container, starting with pend then alternating with main
 	{
 		isPend ? pend.insert(pend.end(), it, it + pSeqSize) : main.insert(main.end(), it, it + pSeqSize);
 		isPend = !isPend;
@@ -87,12 +87,9 @@ void	PmergeMe::fordjohnson(Container& pContainer, int pSeqSize)
 	Container js = jacobsthal<Container>(seqPendSize); // generate the jacobshtal numbers
 	js.push_back(seqPendSize); // add the max size of sequence depending on the sequence size inside pend so it can loop reversal for the last number after jacobshtal
 
-	for (typename Container::iterator	it = js.begin() + 2; it < js.end(); it++)
+	main.insert(main.begin(), pend.begin(), pend.begin() + pSeqSize);
+	for (typename Container::iterator	it = js.begin() + 2; it != js.end(); ++it)
 	{
-		if (*it == 1) { // rule 1: first block of pend is always inserted in the begin of main
-			main.insert(main.begin(), pend.begin(), pend.begin() + pSeqSize);
-			continue;
-		}
 		for (int i = *it; i != *(it - 1); i--)
 		{
 			Container seqLast;

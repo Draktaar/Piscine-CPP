@@ -19,6 +19,7 @@ echo "\nPassing tests:\n"
 ./PmergeMe 3 5 9 7 4
 ./PmergeMe 3 5 9 7 4 6 7 9 8 40
 ./PmergeMe 11 2 17 0 16 8 6 15 10 3 21 1 18 9 14 19 12 5 4 20 13 7
+./PmergeMe $(seq 1 3000 | shuf)
 
 
 make fclean
