@@ -6,13 +6,15 @@
 /*   By: achu <achu@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 23:47:00 by achu              #+#    #+#             */
-/*   Updated: 2025/08/16 12:32:14 by achu             ###   ########.fr       */
+/*   Updated: 2025/08/16 22:41:19 by achu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.h"
 #include <iostream>
 #include <cstdlib>
+#include <iomanip>
+#include <ctime>
 
 template <typename Container>
 static Container	parseArgs(int pAc, const char** pAv)
@@ -36,7 +38,7 @@ static bool		checkArgv(std::string pAv)
 
 int main(int ac, const char **av)
 {
-	if (ac < 2) {
+	if (ac < 3) {
 		std::cerr << "Usage: ./PmergeMe <number>" << std::endl;
 		return (1);
 	}
@@ -44,7 +46,7 @@ int main(int ac, const char **av)
 	for (int i = 1; i < ac; i++)
 	{
 		if (!checkArgv(av[i])) {
-			std::cerr << av[i] << std::endl;
+			std::cerr << "Error: Only Integer" << std::endl;
 			return (1);
 		}
 	}
@@ -54,12 +56,23 @@ int main(int ac, const char **av)
 		std::vector<int>	_vector = parseArgs<std::vector <int> >(ac, av);
 		std::deque<int>		_deque = parseArgs<std::deque <int> >(ac, av);
 
-		PmergeMe::log(_vector.begin(), _vector.end(), "Before: ");
-		PmergeMe::log(_deque.begin(), _deque.end(), "Before: ");
+		PmergeMe::log(_vector.begin(), _vector.end(), "Before:  ");
+
+		std::clock_t startVec = std::clock();
 		PmergeMe::fordjohnson(_vector, 1);
+		std::clock_t endVec = std::clock();
+
+		std::clock_t startDeque = std::clock();
 		PmergeMe::fordjohnson(_deque, 1);
-		PmergeMe::log(_vector.begin(), _vector.end(), "After: ");
-		PmergeMe::log(_deque.begin(), _deque.end(), "After: ");
+		std::clock_t endDeque = std::clock();
+
+		PmergeMe::log(_vector.begin(), _vector.end(), "After:   ");
+
+		double durationVec = static_cast<double>(endVec - startVec) / 1000;
+		std::cout << "Time to process a range of " << _vector.size()  << " elements with std::vector : " << durationVec << " µs" << std::endl;
+
+		double durationDeque = static_cast<double>(endDeque - startDeque) / 1000;
+		std::cout << "Time to process a range of " << _deque.size()  << " elements with std::deque : " << durationDeque << " µs" << std::endl << std::endl;
 
 	} catch(const std::exception& e) {
 		std::cerr << e.what() << std::endl;
